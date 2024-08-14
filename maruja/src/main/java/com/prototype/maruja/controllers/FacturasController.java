@@ -21,7 +21,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.time.LocalDate; // Importación para trabajar con fechas
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -146,6 +146,10 @@ public class FacturasController {
     @FXML
     private TextField txtProducto;
 
+    private ObservableList<Detalle> listaDetalles = FXCollections.observableArrayList();
+    private int lineaActual = 1;
+    private ObservableList<Factura> anadirListaFactura;
+
     @FXML
     public void initialize() {
         // Llenar automáticamente la fecha con la fecha actual del sistema
@@ -245,9 +249,6 @@ public class FacturasController {
         // Implementar la lógica de actualización si es necesario
     }
 
-    private ObservableList<Detalle> listaDetalles = FXCollections.observableArrayList();
-    private int lineaActual = 1;
-
     @FXML
     void addProducto(ActionEvent event) {
         String consulta = "SELECT Precio_producto FROM Producto WHERE Nombre_producto = ?";
@@ -257,7 +258,7 @@ public class FacturasController {
             preparar.setString(1, txtProducto.getText());
             ResultSet resultado = preparar.executeQuery();
             Detalle detalle;
-            while (resultado.next()) {
+            if (resultado.next()) {
                 String nombre = txtProducto.getText();
                 int cantidad = Integer.parseInt(txtCantidad.getText());
                 double precio = resultado.getDouble("Precio_producto");  // Asegurarse de que el valor sea numérico
@@ -269,6 +270,8 @@ public class FacturasController {
                 txtProducto.clear();
                 txtCantidad.clear();
                 System.out.println("Producto: " + nombre);
+            } else {
+                mostrarAlertaError("Producto no encontrado.");
             }
         } catch (SQLException e) {
             System.out.println("Error en añadir producto - Factura " + e.getMessage());
@@ -345,7 +348,7 @@ public class FacturasController {
                 alert.setContentText("Estas seguro de eliminar la factura?");
                 Optional<ButtonType> option = alert.showAndWait();
 
-                if (option.get().equals(ButtonType.OK)) {
+                if (option.isPresent() && option.get().equals(ButtonType.OK)) {
                     PreparedStatement preparedStatementFactura = conexion.prepareStatement(eliminarFactura);
                     preparedStatementFactura.setString(1, txtNumFactura.getText());
                     preparedStatementFactura.executeUpdate();
@@ -484,8 +487,6 @@ public class FacturasController {
         alert.setContentText(mensaje);
         alert.showAndWait();
     }
-
-    private ObservableList<Factura> anadirListaFactura;
 
     public void buscaFactura() {
         FilteredList<Factura> filtro = new FilteredList<>(anadirListaFactura, e -> true);

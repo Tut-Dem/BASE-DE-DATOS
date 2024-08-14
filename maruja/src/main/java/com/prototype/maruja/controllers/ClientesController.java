@@ -24,6 +24,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import javafx.beans.property.SimpleStringProperty;
+
 
 public class ClientesController {
 
@@ -418,7 +420,13 @@ public class ClientesController {
         columnaDireccion.setCellValueFactory(new PropertyValueFactory<>("direccion"));
         columnaTelefono.setCellValueFactory(new PropertyValueFactory<>("telefono"));
         columnaEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
-        columnaCiudad.setCellValueFactory(new PropertyValueFactory<>("ciudad"));
+
+        // Convertir 1/2 a Quito/Guayaquil en la columna de Ciudad
+        columnaCiudad.setCellValueFactory(cellData -> {
+            String ciudad = cellData.getValue().getCiudad(); // Esto retorna 1 o 2
+            String ciudadNombre = obtenerCiudadPorId(ciudad); // Convertimos 1/2 a Quito/Guayaquil
+            return new SimpleStringProperty(ciudadNombre);
+        });
 
         tablaCliente.setItems(anadirListaCliente);
     }
