@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1889.0" stylesheets="@../styles/facturas.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.prototype.maruja.controllers.FacturasController">
+    <children>
+      <Pane layoutX="3.0" layoutY="1.0" prefHeight="750.0" prefWidth="286.0">
+         <children>
+            <Button fx:id="btnClientes" alignment="BASELINE_LEFT" contentDisplay="RIGHT" graphicTextGap="90.0" layoutX="32.0" layoutY="228.0" mnemonicParsing="false" onAction="#abrirClientes" prefHeight="40.0" prefWidth="252.0" styleClass="menu-btns" text="CLIENTES" textAlignment="RIGHT">
+               <font>
+                  <Font name="System Bold" size="19.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="54.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imgs/cliente.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="btnEmpleados" alignment="BASELINE_LEFT" contentDisplay="RIGHT" graphicTextGap="60.0" layoutX="32.0" layoutY="355.0" mnemonicParsing="false" onAction="#abrirEmpleados" prefHeight="40.0" prefWidth="252.0" styleClass="menu-btns" text="EMPLEADOS" textAlignment="RIGHT">
+               <font>
+                  <Font name="System Bold" size="19.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="107.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imgs/empleados.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="btnFacturas" alignment="BASELINE_LEFT" contentDisplay="RIGHT" graphicTextGap="70.0" layoutX="32.0" layoutY="474.0" mnemonicParsing="false" onAction="#abrirFacturas" prefHeight="40.0" prefWidth="252.0" styleClass="menu-btns" text="FACTURAS" textAlignment="RIGHT">
+               <font>
+                  <Font name="System Bold" size="19.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="107.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imgs/facturas.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="btnProductos" alignment="BASELINE_LEFT" contentDisplay="RIGHT" graphicTextGap="50.0" layoutX="32.0" layoutY="602.0" mnemonicParsing="false" onAction="#abrirProductos" prefHeight="40.0" prefWidth="252.0" styleClass="menu-btns" text="PRODUCTOS" textAlignment="RIGHT">
+               <font>
+                  <Font name="System Bold" size="19.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="107.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imgs/productos.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="75.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imgs/pantalla_principal.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <ScrollPane layoutX="302.0" prefHeight="750.0" prefWidth="1585.0">
+         <content>
+              <Pane prefHeight="750.0" prefWidth="2500.0">
+               <children>
+                  <Separator layoutX="960.0" orientation="VERTICAL" prefHeight="940.0" />
+                  <VBox layoutX="78.0" layoutY="25.0" prefHeight="298.0" prefWidth="800.0">
+                     <children>
+                        <HBox prefHeight="30.0" prefWidth="100.0">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="30.0" prefWidth="150.0" styleClass="label-item" text="Sucursal">
+                                 <font>
+                                    <Font name="Arial" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" prefHeight="30.0" prefWidth="150.0" styleClass="label-item" text="Ciudad">
+                                 <font>
+                                    <Font name="Arial" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" prefHeight="30.0" prefWidth="300.0" styleClass="label-item" text="Direccion">
+                                 <font>
+                                    <Font name="Arial" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" prefHeight="30.0" prefWidth="200.0" styleClass="label-item" text="Numero de la factura">
+                                 <font>
+                                    <Font name="Arial" size="14.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="30.0" prefWidth="200.0">
+                           <children>
+                              <TextField fx:id="txtIdSucursal" alignment="CENTER" disable="true" prefWidth="150.0" styleClass="textf">
+                                 <font>
+                                    <Font name="Arial" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <ComboBox fx:id="txtCiuSucursal" prefWidth="150.0" styleClass="textf" />
+                              <TextField fx:id="txtDirSucursal" alignment="CENTER" disable="true" prefWidth="300.0" styleClass="textf">
+                                 <font>
+                                    <Font name="Arial" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="txtNumFactura" alignment="CENTER" prefWidth="200.0" styleClass="textf">
+                                 <font>
+                                    <Font name="Arial" size="14.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="30.0" prefWidth="200.0">
+                           <children>
+                              <Label alignment="CENTER" prefWidth="150.0" textFill="RED" visible="false" />
+                              <Label alignment="CENTER" prefWidth="150.0" textFill="RED" visible="false" />
+                              <Label alignment="CENTER" prefWidth="300.0" textFill="RED" visible="false" />
+                              <Label fx:id="lblNumFactura" alignment="CENTER" prefWidth="200.0" text="Numero no valido" textFill="RED" visible="false" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="30.0" prefWidth="200.0">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="30.0" prefWidth="200.0" styleClass="label-item" text="N de cedula del emisor">
+                                 <font>
+                                    <Font name="Arial" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" prefHeight="30.0" prefWidth="200.0" styleClass="label-item" text="Nombres del emisor" visible="false">
+                                 <font>
+                                    <Font name="Arial" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" prefHeight="30.0" prefWidth="200.0" styleClass="label-item" text="N de cedula del cliente">
+                                 <font>
+                                    <Font name="Arial" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" prefHeight="30.0" prefWidth="200.0" styleClass="label-item" text="Nombres del cliente" visible="false">
+                                 <font>
+                                    <Font name="Arial" size="14.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="30.0" prefWidth="200.0">
+                           <children>
+                              <TextField fx:id="txtCedEmpleado" alignment="CENTER" prefWidth="200.0" styleClass="textf">
+                                 <font>
+                                    <Font name="Arial" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField alignment="CENTER" disable="true" prefWidth="200.0" styleClass="textf" visible="false">
+                                 <font>
+                                    <Font name="Arial" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="txtCedCliente" alignment="CENTER" prefWidth="200.0" styleClass="textf">
+                                 <font>
+                                    <Font name="Arial" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField alignment="CENTER" disable="true" prefWidth="200.0" styleClass="textf" visible="false">
+                                 <font>
+                                    <Font name="Arial" size="14.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="30.0" prefWidth="200.0">
+                           <children>
+                              <Label fx:id="lblCiEmpleado" alignment="CENTER" prefWidth="200.0" text="N de cedula no valida" textFill="RED" visible="false" />
+                              <Label alignment="CENTER" prefWidth="200.0" textFill="RED" visible="false" />
+                              <Label fx:id="lblCiCliente" alignment="CENTER" prefWidth="200.0" text="N de cedula no valida" textFill="RED" visible="false" />
+                              <Label alignment="CENTER" prefWidth="200.0" textFill="RED" visible="false" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="30.0" prefWidth="200.0" spacing="50.0">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="30.0" prefWidth="350.0" styleClass="label-item" text="Nombre del producto">
+                                 <font>
+                                    <Font name="Arial" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" prefHeight="30.0" prefWidth="200.0" styleClass="label-item" text="Cantidad">
+                                 <font>
+                                    <Font name="Arial" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Button fx:id="btnAdd" mnemonicParsing="false" onAction="#addProducto" prefHeight="15.0" prefWidth="150.0" styleClass="btns" text="Añadir">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="30.0" prefWidth="200.0" spacing="50.0">
+                           <children>
+                              <TextField fx:id="txtProducto" alignment="CENTER" prefWidth="350.0" styleClass="textf">
+                                 <font>
+                                    <Font name="Arial" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="txtCantidad" alignment="CENTER" prefWidth="200.0" styleClass="textf">
+                                 <font>
+                                    <Font name="Arial" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <Button fx:id="btnQuitar" mnemonicParsing="false" onAction="#quitar" prefHeight="13.0" prefWidth="150.0" styleClass="btns" text="Quitar">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="30.0" prefWidth="200.0">
+                           <children>
+                              <Label alignment="CENTER" prefWidth="350.0" textFill="RED" visible="false" />
+                              <Label alignment="CENTER" prefWidth="50.0" textFill="RED" visible="false" />
+                              <Label fx:id="lblCantidad" alignment="CENTER" prefWidth="200.0" text="Cantidad no valida" textFill="RED" visible="false" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <TableView fx:id="generarFactura" layoutX="12.0" layoutY="296.0" prefHeight="324.0" prefWidth="866.0">
+                    <columns>
+                        <TableColumn fx:id="columnaLinea" minWidth="75.0" prefWidth="75.0" text="Linea" />
+                      <TableColumn fx:id="columnaCantidad" minWidth="100.0" prefWidth="75.0" text="Cantidad" />
+                      <TableColumn fx:id="columnaNombre" minWidth="325.0" prefWidth="75.0" text="Nombre" />
+                        <TableColumn fx:id="columnaPrecio" minWidth="150.0" prefWidth="75.0" text="Precio Unitario" />
+                        <TableColumn fx:id="columnaPrecioTotal" minWidth="150.0" prefWidth="75.0" text="Precio Total" />
+                    </columns>
+                  </TableView>
+                  <HBox layoutX="209.0" layoutY="677.0" prefHeight="40.0" prefWidth="450.0" spacing="50.0">
+                     <children>
+                        <Button fx:id="btnCancelar" alignment="CENTER" mnemonicParsing="false" onAction="#cancelar" prefHeight="53.0" prefWidth="200.0" styleClass="btns" text="Cancelar">
+                           <graphic>
+                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../imgs/cancel-icon.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="btnGuardar" alignment="CENTER" mnemonicParsing="false" onAction="#guardar" prefHeight="40.0" prefWidth="200.0" styleClass="btns" text="Guardar">
+                           <graphic>
+                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../imgs/save-icon.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <Label alignment="CENTER" layoutX="176.0" layoutY="634.0" prefHeight="35.0" prefWidth="115.0" styleClass="label-item" text="Total">
+                     <font>
+                        <Font name="Arial" size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="monto" alignment="CENTER" disable="true" layoutX="291.0" layoutY="634.0" prefHeight="30.0" prefWidth="115.0" styleClass="textf">
+                     <font>
+                        <Font name="Arial" size="13.0" />
+                     </font>
+                  </TextField>
+                  <TableView fx:id="mostrarFactura" layoutX="999.0" layoutY="195.0" prefHeight="425.0" prefWidth="900.0">
+                     <columns>
+                        <TableColumn fx:id="columnaIdFactura" minWidth="125.0" prefWidth="75.0" text="Factura" />
+                        <TableColumn fx:id="columnaCiCliente" minWidth="175.0" prefWidth="75.0" text="Ci cliente" />
+                        <TableColumn fx:id="ColumnaCiEmpleado" minWidth="175.0" prefWidth="75.0" text="Ci empleado" />
+                        <TableColumn fx:id="columnaFechaEmision" minWidth="150.0" prefWidth="75.0" text="Fecha de emision" />
+                        <TableColumn fx:id="columnaMonto" minWidth="125.0" prefWidth="75.0" text="Monto" />
+                        <TableColumn fx:id="columnaCiudad" minWidth="150.0" prefWidth="75.0" text="Ciudad" />
+                     </columns>
+                  </TableView>
+                  <HBox layoutX="1417.0" layoutY="830.0" prefHeight="40.0" prefWidth="450.0" spacing="50.0">
+                     <children>
+                        <Button fx:id="btnActualizar" alignment="CENTER" mnemonicParsing="false" onAction="#actualizar" prefHeight="40.0" prefWidth="200.0" styleClass="btns" text="Actualizar" visible="false">
+                           <graphic>
+                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../imgs/update-icon.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <TextField fx:id="txtBuscar" layoutX="1272.0" layoutY="108.0" prefHeight="35.0" prefWidth="500.0" promptText="Ingrese la cédula de ciudadanía del cliente" styleClass="textf" />
+                  <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="1207.0" layoutY="108.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imgs/search-icon-v2.png" />
+                     </image>
+                  </ImageView>
+                  <Label alignment="CENTER" layoutX="454.0" layoutY="634.0" prefHeight="35.0" prefWidth="150.0" styleClass="label-item" text="Fecha de emision">
+                     <font>
+                        <Font name="Arial" size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="fechaEmision" alignment="CENTER" layoutX="604.0" layoutY="634.0" prefHeight="30.0" prefWidth="150.0" styleClass="textf">
+                     <font>
+                        <Font name="Arial" size="13.0" />
+                     </font>
+                  </TextField>
+                  <Button fx:id="btnEliminar" alignment="CENTER" layoutX="1310.0" layoutY="632.0" mnemonicParsing="false" onAction="#eliminar" prefHeight="53.0" prefWidth="200.0" styleClass="btns" text="Anular">
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../imgs/cancel-icon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+               </children>
+            </Pane>
+         </content>
+      </ScrollPane>
+    </children>
+</Pane>

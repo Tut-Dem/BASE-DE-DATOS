@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1200.0" stylesheets="@../styles/maruja.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.prototype.maruja.controllers.DashboardController">
+   <children>
+      <ImageView fitHeight="1016.0" fitWidth="992.0" layoutX="289.0" layoutY="-196.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../imgs/pantalla_principal.png" />
+         </image>
+      </ImageView>
+      <HBox prefHeight="600.0" prefWidth="1200.0" />
+      <Pane layoutY="-1.0" prefHeight="750.0" prefWidth="316.0">
+         <children>
+            <Button fx:id="btnClientes" alignment="BASELINE_LEFT" contentDisplay="RIGHT" graphicTextGap="90.0" layoutX="32.0" layoutY="228.0" mnemonicParsing="false" onAction="#abrirClientes" prefHeight="40.0" prefWidth="252.0" styleClass="menu-btns" text="CLIENTES" textAlignment="RIGHT">
+               <font>
+                  <Font name="System Bold" size="19.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="54.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imgs/cliente.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="btnEmpleados" alignment="BASELINE_LEFT" contentDisplay="RIGHT" graphicTextGap="60.0" layoutX="32.0" layoutY="355.0" mnemonicParsing="false" onAction="#abrirEmpleados" prefHeight="40.0" prefWidth="252.0" styleClass="menu-btns" text="EMPLEADOS" textAlignment="RIGHT">
+               <font>
+                  <Font name="System Bold" size="19.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="107.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imgs/empleados.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="btnFacturas" alignment="BASELINE_LEFT" contentDisplay="RIGHT" graphicTextGap="70.0" layoutX="32.0" layoutY="474.0" mnemonicParsing="false" onAction="#abrirFacturas" prefHeight="40.0" prefWidth="252.0" styleClass="menu-btns" text="FACTURAS" textAlignment="RIGHT">
+               <font>
+                  <Font name="System Bold" size="19.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="107.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imgs/facturas.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="btnProductos" alignment="BASELINE_LEFT" contentDisplay="RIGHT" graphicTextGap="50.0" layoutX="32.0" layoutY="602.0" mnemonicParsing="false" onAction="#abrirProductos" prefHeight="40.0" prefWidth="252.0" styleClass="menu-btns" text="PRODUCTOS" textAlignment="RIGHT">
+               <font>
+                  <Font name="System Bold" size="19.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="107.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imgs/productos.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="75.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imgs/pantalla_principal.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+   </children>
+</Pane>
